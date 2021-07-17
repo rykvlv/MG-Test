@@ -103,6 +103,14 @@ namespace CookingPrototype.Controllers {
 			}
 		}
 
+		public void Play() {
+			Time.timeScale = 1f;
+			HideWindows();
+			foreach ( var place in FindObjectsOfType<AbstractFoodPlace>() ) {
+				place.FreePlace();
+			}
+		}
+
 		public void CloseGame() {
 #if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;

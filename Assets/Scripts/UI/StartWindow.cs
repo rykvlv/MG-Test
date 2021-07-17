@@ -9,12 +9,13 @@ namespace CookingPrototype.UI {
 	public sealed class StartWindow : MonoBehaviour {
 		public TMP_Text GoalText     = null;
 		public Button   PlayButton = null;
+		private GameplayController gc = GameplayController.Instance;
 
 		bool _isInit = false;
 
 		void Init() {
-			var gc = GameplayController.Instance;
-			PlayButton.onClick.AddListener(gc.Restart);
+			gc = GameplayController.Instance;
+			PlayButton.onClick.AddListener(gc.Play);
 		}
 
 		public void Show() {
@@ -22,7 +23,7 @@ namespace CookingPrototype.UI {
 				Init();
 			}
 
-			var gc = GameplayController.Instance;
+			/*var gc = GameplayController.Instance;*/
 			
 			GoalText.text = $"{gc.OrdersTarget}";
 
